@@ -5,6 +5,7 @@ try {
 
     $home = new Home();
     $productCount = $home->getProductCount();
+    $categoryCount = $home->getCategoryCount();
 
     $title = 'Home';
 
