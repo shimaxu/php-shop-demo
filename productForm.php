@@ -1,19 +1,15 @@
 <?php
 try {
     include __DIR__ . '/classes/Product.php';
-    include __DIR__ . '/classes/Supplier.php';
-    include __DIR__ . '/classes/Category.php';
 
     $product = new Product();
-    $supplier = new Supplier();
-    $category = new Category();
 
     if (isset($_POST['ProductName'])) {
         $product->name = $_POST['ProductName'];
         $product->unit = $_POST['Unit'];
         $product->price = $_POST['Price'];
-        $product->supplierId = $_POST['SupplierID'];
-        $product->categoryId = $_POST['CategoryID'];
+        $product->supplierId = 1;
+        $product->categoryId = 1;
 
         if (!empty($_POST['ProductID'])) {
             $product->updateProduct($_POST['ProductID']);

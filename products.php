@@ -1,6 +1,7 @@
 <?php
 try {
     include __DIR__ . '/classes/Product.php';
+    
     $product = new Product();
 
     if(isset($_POST['ProductID'])) {
