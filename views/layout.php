@@ -13,9 +13,6 @@
         <ul>
             <li><a href="index.php">Home</a></li>
             <li><a href="products.php">Products</a></li>
-            <li><a href="categories.php">Categories</a></li>
-            <li><a href="login.php">Login</a></li>
-            <li><a href="signup.php">Signup</a></li>
         </ul>
     </nav>
 
