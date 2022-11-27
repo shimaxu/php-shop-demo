@@ -55,4 +55,20 @@ class User
     public function securePassword($password) {
         return password_hash($password, PASSWORD_DEFAULT);
     }
+
+    public function login() {
+        $user = $this->findUser('email', $this->email);
+
+        $verify_password = $this->verifyPassword($this->password, $user['password']);
+
+        if($user && $verify_password) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function verifyPassword($password, $userPassword) {
+        return password_verify($password, $userPassword);
+    }
 }

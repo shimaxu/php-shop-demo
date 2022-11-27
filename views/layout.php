@@ -15,6 +15,7 @@
             <li><a href="products.php">Products</a></li>
             <li><a href="categories.php">Categories</a></li>
             <li><a href="signup.php">Sign Up</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </nav>
 

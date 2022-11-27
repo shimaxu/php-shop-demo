@@ -1,5 +1,5 @@
 <div>
-    <h2>Sign up</h2>
+    <h2>Sign in</h2>
 </div>
 <form action="" method="post" style="margin-top: 10px;">
 
@@ -15,9 +15,8 @@
     <input type="submit" name="submit" value="Save">
 
     <div class="message">
-        <?php if(isset($success)):?>
-            <span style="color: green;"><?=$success?></span>
-            <a href="login.php">Login</a>
+        <?php if(isset($credentialError)):?>
+            <span style="color: red;"><?=$credentialError?></span>
         <?php endif ?>
     </div>
     
