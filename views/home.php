@@ -3,3 +3,4 @@
 <p>Welcome to the Shop Database</p>
 
 <p>There are <?=$productCount?> Products</p>
+<p>There are <?=$categoryCount?> Categories</p>

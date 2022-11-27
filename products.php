@@ -1,7 +1,15 @@
 <?php
 try {
     include __DIR__ . '/classes/Product.php';
+    include __DIR__ . '/classes/User.php';
+
     $product = new Product();
+
+    $user = new User();
+    $loggedIn = false;
+    if($_SESSION) {
+        $loggedIn = $user->loggedIn($_SESSION['email'], $_SESSION['password']);
+    }
 
     if(isset($_POST['ProductID'])) {
         $product->deleteProduct($_POST['ProductID']);

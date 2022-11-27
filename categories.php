@@ -1,7 +1,15 @@
 <?php
 try {
     include __DIR__ . '/classes/Category.php';
+    include __DIR__ . '/classes/User.php';
+
     $category = new Category();
+    $user = new User();
+    
+    $loggedIn = false;
+    if($_SESSION) {
+        $loggedIn = $user->loggedIn($_SESSION['email'], $_SESSION['password']);
+    }
 
     if(isset($_POST['CategoryID'])) {
         $category->deleteCategory($_POST['CategoryID']);

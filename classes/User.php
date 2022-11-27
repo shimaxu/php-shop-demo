@@ -11,6 +11,7 @@ class User
     {
         $db = new Database();
         $this->pdo = $db->connect();
+        session_start(); // start the session
     }
 
     public function register() {
@@ -62,6 +63,11 @@ class User
         $verify_password = $this->verifyPassword($this->password, $user['password']);
 
         if($user && $verify_password) {
+            // set session
+            session_regenerate_id();
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['password'] = $user['password'];
+
             return true;
         }
 
@@ -70,5 +76,21 @@ class User
 
     public function verifyPassword($password, $userPassword) {
         return password_verify($password, $userPassword);
+    }
+
+    public function loggedIn($email, $password) {
+        $user = $this->findUser('email', $email);
+
+        if($password == $user['password']) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function logout() {
+        unset($_SESSION['email']);
+        unset($_SESSION['password']);
+        session_regenerate_id();
     }
 }

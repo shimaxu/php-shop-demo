@@ -3,6 +3,8 @@ try {
     include __DIR__ . '/classes/User.php';
     $user = new User();
 
+    $loggedIn = false;
+
     if(isset($_POST['email']) && isset($_POST['password'])) {
         if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == true) {
             $user->email = $_POST['email'];

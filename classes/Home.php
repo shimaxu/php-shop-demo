@@ -16,4 +16,11 @@ class Home
         return $row[0];
     }
 
+    public function getCategoryCount() {
+        $stmt = $this->pdo->prepare('SELECT COUNT(*) FROM `categories`');
+        $stmt->execute();
+        $row = $stmt->fetch();
+        return $row[0];
+    }
+
 }

@@ -2,8 +2,17 @@
 try {
 
     include __DIR__ . '/classes/Category.php';
+    include __DIR__ . '/classes/User.php';
 
     $category = new Category();
+    $user = new User();
+
+    $loggedIn = false;
+    if($_SESSION) {
+        $loggedIn = $user->loggedIn($_SESSION['email'], $_SESSION['password']);
+    } else {
+         header('location: categories.php');
+    }
 
     if (isset($_POST['CategoryName'])) {
         $category->name = $_POST['CategoryName'];

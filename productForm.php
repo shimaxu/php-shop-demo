@@ -3,10 +3,20 @@ try {
     include __DIR__ . '/classes/Product.php';
     include __DIR__ . '/classes/Supplier.php';
     include __DIR__ . '/classes/Category.php';
+    include __DIR__ . '/classes/User.php';
 
     $product = new Product();
     $supplier = new Supplier();
     $category = new Category();
+    $user = new User();
+
+
+    $loggedIn = false;
+    if($_SESSION) {
+        $loggedIn = $user->loggedIn($_SESSION['email'], $_SESSION['password']);
+    } else {
+         header('location: products.php');
+    }
 
     if (isset($_POST['ProductName'])) {
         $product->name = $_POST['ProductName'];
